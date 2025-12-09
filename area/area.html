@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../navbar/navbar.css" />
+    <link rel="stylesheet" href="../footer/footer.css" />
+    <link rel="stylesheet" href="../area/area.css" />
+    <link rel="stylesheet" href="../base.css" />
+  </head>
+  <body>
+    <div id="navbar"></div>
+
+    <main class="main">
+      <div class="map-container">
+        <img src="../image/map.jpeg" alt="서울 지도" class="map-image" />
+
+        <button
+          class="region-btn"
+          data-region="mapo"
+          data-x="0.317"
+          data-y="0.520"
+        >
+          마포구
+        </button>
+        <button
+          class="region-btn"
+          data-region="yongsan"
+          data-x="0.450"
+          data-y="0.600"
+        >
+          용산구
+        </button>
+        <button
+          class="region-btn"
+          data-region="eunpyeong"
+          data-x="0.350"
+          data-y="0.330"
+        >
+          은평구
+        </button>
+        <button
+          class="region-btn"
+          data-region="seodaemun"
+          data-x="0.370"
+          data-y="0.454"
+        >
+          서대문구
+        </button>
+
+        <section data-region="mapo">
+          <h2>마포구</h2>
+          <div class="carousel">
+            <div class="area-container">
+              <div class="area-card">
+                <img src="../image/mapo1.jpeg" alt="공연 1" />
+                <div class="area-info">
+                  <h3>플렉스 라운지</h3>
+                  <p>서울 마포구 양화로 100-10 다내리빌딩 지하</p>
+                  <p>문의 : 010-3180-4620</p>
+                </div>
+              </div>
+              <div class="area-card">
+                <img src="../image/mapo2.webp" alt="공연 2" />
+                <div class="area-info">
+                  <h3>롤링홀</h3>
+                  <p>서울 마포구 어울마당로 35</p>
+                  <p>문의 : 02-325-6071</p>
+                </div>
+              </div>
+              <div class="area-card">
+                <img src="../image/mapo3.jpeg" alt="공연 3" />
+                <div class="area-info">
+                  <h3>벨로주</h3>
+                  <p>서울 마포구 잔다리로 46 스튜디오 빌딩 지하</p>
+                  <p>문의 : 02-323-7798</p>
+                </div>
+              </div>
+              <div class="area-card">
+                <img src="../image/mapo4.jpeg" alt="공연 4" />
+                <div class="area-info">
+                  <h3>긱 라이브 하우스</h3>
+                  <p>서울 서대문구 연세로 5길 26-17</p>
+                  <p>문의 : 000-000-000</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section data-region="yongsan">
+          <h2>용산구</h2>
+          <div class="carousel">
+            <div class="area-container">
+              <div class="area-card">
+                <img src="../image/yongsan1.jpeg" alt="공연 1" />
+                <div class="area-info">
+                  <h3>SAVAGE</h3>
+                  <p>서울 용산구 이태원로 187 지하 1층</p>
+                  <p>문의 : 0507-1371-7624</p>
+                </div>
+              </div>
+              <div class="area-card">
+                <img src="../image/yongsan2.png" alt="공연 2" />
+                <div class="area-info">
+                  <h3>현대카드 UNDERSTAGE</h3>
+                  <p>서울 용산구 이태원로 246 언더스테이지</p>
+                  <p>문의 : 02-331-6301</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section data-region="seodaemun">
+          <h2>서대문구</h2>
+          <div class="carousel">
+            <div class="area-container">
+              <div class="area-card">
+                <img src="../image/sdm.jpeg" alt="공연 1" />
+                <div class="area-info">
+                  <h3>딜레탕트</h3>
+                  <p>서울 수색로2길 7 3층 1호</p>
+                  <p>문의 : 0507-1471-4987</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section data-region="eunpyeong">
+          <h2>은평구</h2>
+          <div class="carousel">
+            <div class="area-container">
+              <div class="area-card">
+                <img src="../image/ep.jpeg" alt="공연 1" />
+                <div class="area-info">
+                  <h3>mhood</h3>
+                  <p>서울 은평구 연서로27길 16-16 지하 1층</p>
+                  <p>문의 : 0507-1415-3665</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <div id="footer"></div>
+
+    <script src="../area/area.js"></script>
+    <script src="../base.js" defer></script>
+  </body>
+</html>

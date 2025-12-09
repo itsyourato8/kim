@@ -1,0 +1,252 @@
+/* ------------------------------ */
+/* 기본 레이아웃 및 전체 구조 */
+/* ------------------------------ */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* ✅ 화면 높이 기준 */
+}
+
+.schedule-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  max-width: 90vw; /* 최대 폭을 화면 대비 비율로 */
+  width: 95%; /* 기본 폭 */
+
+  margin: 10vh auto 5vh auto; /* 상단/하단 여백을 화면 높이 기준으로 */
+
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 1rem; /* px 대신 rem 사용 */
+  box-shadow: 0 0.375rem 1rem rgba(0, 0, 0, 0.08);
+
+  overflow: hidden;
+  backdrop-filter: blur(6px);
+}
+
+/* 모바일 대응 */
+@media (max-width: 768px) {
+  .schedule-container {
+    flex-direction: column; /* 세로 배치 */
+    width: 90%; /* 모바일에서는 조금 더 좁게 */
+    margin: 5vh auto 5vh auto;
+    border-radius: 0.75rem;
+    gap: 2vh; /* 세로 간격 */
+  }
+}
+
+/* ✅ 핵심 */
+#footer {
+  margin-top: auto; /* 푸터를 아래로 밀어냄 */
+}
+
+/* ------------------------------ */
+/* 달력 부분 */
+/* ------------------------------ */
+
+.calendar-section {
+  flex: 3;
+  background: #f8f8f8;
+  padding: 32px 28px;
+  border-right: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.calendar-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.calendar-nav button {
+  background: none;
+  border: none;
+  font-size: 1.6rem;
+  color: #666;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.calendar-nav button:hover {
+  color: #111;
+}
+
+#month-year {
+  font-weight: 600;
+  font-size: 1.8rem;
+  color: #333;
+}
+
+/* 달력 테이블 */
+/* 달력 전체 높이를 화면 비율로 설정 */
+.calendar {
+  width: 100%;
+  height: 70vh; /* 화면 높이의 70% */
+  border-collapse: collapse;
+  text-align: center;
+  font-size: 1.15rem;
+}
+
+/* 달력 헤더(요일) 높이 비율 유지 */
+.calendar th {
+  color: #777;
+  font-weight: 500;
+  padding: 10px 0;
+  height: 5vh; /* 화면 높이 기준 */
+}
+
+/* 달력 칸(td) 높이 늘리기 */
+.calendar td {
+  position: relative;
+  width: 14.2%;
+  height: calc((70vh - 5vh) / 6); /* 달력 높이에서 헤더 빼고 6주 기준 나눔 */
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  vertical-align: top;
+  text-align: left;
+  padding: 6px 8px;
+}
+
+.calendar td:hover {
+  background-color: #e8e8e8;
+}
+
+.calendar td.selected {
+  background-color: #d0d0d0;
+  font-weight: 600;
+  color: #000;
+}
+
+/* ------------------------------ */
+/* 일정 패널 */
+/* ------------------------------ */
+
+.event-panel {
+  flex: 1;
+  background: #ffffff;
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+#selected-date-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #333;
+}
+
+#event-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-grow: 1;
+}
+
+#event-list li {
+  background: #efefef;
+  border-radius: 8px;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  color: #444;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  transition: background 0.2s;
+}
+
+#event-list li:hover {
+  background: #e0e0e0;
+}
+
+/* 일정 추가 버튼 */
+#add-event-btn {
+  margin-top: 12px;
+  padding: 10px 14px;
+  background: #e5e5e5;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+#add-event-btn:hover {
+  background: #d2d2d2;
+}
+
+@media (max-width: 900px) {
+  .schedule-container {
+    flex-direction: column;
+    width: 95%;
+    margin: 60px auto;
+  }
+
+  .calendar-section {
+    border-right: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  .event-panel {
+    width: 100%;
+  }
+
+  .events-container {
+    margin-top: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px; /* 일정 간 간격 */
+  }
+
+  .event-preview {
+    font-size: 0.7rem;
+    color: #222;
+    background: #fffae6;
+    border-radius: 4px;
+    padding: 2px 6px 2px 12px; /* 왼쪽 공간 확보 */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    position: relative;
+  }
+
+  .event-item {
+    position: relative; /* 중요: 버튼 기준 */
+    background: #efefef;
+    border-radius: 8px;
+    padding: 10px 12px;
+    margin-bottom: 8px;
+    color: #444;
+    font-size: 0.95rem;
+    line-height: 1.4;
+  }
+
+  .delete-btn {
+    position: absolute; /* li 기준으로 위치 지정 */
+    top: 4px;
+    right: 4px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #c00;
+    font-size: 16px;
+    opacity: 0.7;
+    transition: opacity 0.2s, transform 0.2s;
+  }
+
+  .delete-btn:hover {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}

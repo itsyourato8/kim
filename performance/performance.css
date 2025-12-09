@@ -1,0 +1,138 @@
+main {
+  padding: 60px 20px;
+}
+
+section {
+  background-color: #f1f1f1;
+  border-radius: 20px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+  padding: 20px;
+  margin: 40px auto;
+  width: 97%;
+  max-width: 1500px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: visible;
+}
+
+section:hover,
+section:focus-within {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+section h2 {
+  text-align: center;
+  font-size: 24px;
+  color: #000;
+  margin-bottom: 5px;
+  border-bottom: 1.5px solid #444;
+  display: inline-block;
+  padding-bottom: 6px;
+}
+
+.carousel {
+  display: flex;
+  justify-content: center;
+  overflow: visible;
+  padding: 40px 0 20px;
+}
+
+.carousel {
+  display: flex;
+  justify-content: center;
+  overflow: visible;
+  overflow-y: visible;
+  z-index: 10;
+  position: relative;
+  padding: 40px 0 20px;
+}
+
+.poster-container {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+.poster-container::-webkit-scrollbar {
+  height: 6px;
+}
+.poster-container::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 3px;
+}
+.poster-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.poster-card {
+  flex: 0 0 80%;
+  max-width: 300px;
+  background-color: #000;
+  border-radius: 20px;
+  padding: 10px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.poster-card img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3/4;
+  border-radius: 10px;
+  display: block;
+  margin-bottom: 10px;
+}
+.poster-card p {
+  margin: 0;
+  font-size: 16px;
+  color: #fff;
+}
+
+.poster-card:hover,
+.poster-card:focus {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* 반응형 */
+@media (min-width: 768px) {
+  .poster-card {
+    flex: 0 0 200px;
+  }
+}
+@media (min-width: 1200px) {
+  .poster-card {
+    flex: 0 0 300px;
+  }
+}
+
+.poster-detail {
+  max-height: 0;
+  overflow: hidden;
+  background: #222;
+  color: #fff;
+  margin-top: 15px;
+  padding: 0 20px;
+  border-radius: 15px;
+  transition: max-height 0.4s ease, padding 0.4s ease;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.poster-detail h3 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.poster-detail p {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.poster-detail.open {
+  max-height: 300px;
+  padding: 20px;
+}

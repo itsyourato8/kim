@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UnderStage - 언더 공연 아카이브</title>
+    <link rel="stylesheet" href="navbar/navbar.css" />
+    <link rel="stylesheet" href="footer/footer.css" />
+    <link rel="stylesheet" href="account/account.css" />
+    <link rel="stylesheet" href="base.css" />
+    <link rel="stylesheet" href="index.css" />
+  </head>
+
+  <body>
+    <!-- 네브바 / 푸터는 fetch로 동적 로드 -->
+    <div id="navbar"></div>
+
+    <div class="hero-video-container">
+      <video autoplay muted loop playsinline>
+        <source src="image/Huckleberry_P.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+
+    <section id="performance-preview">
+      <h2>다가오는 공연 미리보기</h2>
+      <div class="rolling-row">
+        <div class="rolling-track"></div>
+      </div>
+      <div class="section-divider"></div>
+    </section>
+
+    <section id="account-area-preview">
+      <div class="left-wrap">
+        <h2>계정</h2>
+        <div class="poster-slider-viewport">
+          <div class="poster-list-container"></div>
+        </div>
+      </div>
+
+      <div class="right-wrap">
+        <h2>공연장</h2>
+        <div class="area-slider-viewport">
+          <div class="area-list-container"></div>
+        </div>
+      </div>
+    </section>
+
+    <div id="footer"></div>
+
+    <!-- 기존 index.js -->
+    <script src="index.js" defer></script>
+
+    <!-- 네브바 / 푸터 fetch 코드 -->
+    <script>
+      // Navbar load (루트 기준)
+      fetch("navbar/navbar.html")
+        .then((res) => res.text())
+        .then((html) => {
+          const tempDiv = document.createElement("div");
+          tempDiv.innerHTML = html;
+
+          // 모든 href를 루트 기준으로 수정
+          tempDiv.querySelectorAll("a").forEach((a) => {
+            const href = a.getAttribute("href");
+            if (href && !href.startsWith("http")) {
+              a.setAttribute("href", href.replace(/^(\.\.\/)+/, ""));
+            }
+          });
+
+          document.getElementById("navbar").innerHTML = tempDiv.innerHTML;
+        })
+        .catch((err) => console.error("Navbar load error:", err));
+
+      // Footer load (루트 기준)
+      fetch("footer/footer.html")
+        .then((res) => res.text())
+        .then((html) => {
+          document.getElementById("footer").innerHTML = html;
+        })
+        .catch((err) => console.error("Footer load error:", err));
+    </script>
+  </body>
+</html>

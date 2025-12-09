@@ -1,0 +1,196 @@
+/* 메인 비디오 영역 */
+.hero-video-container {
+  width: 100%;
+  height: 100vh; /* 화면 높이 전체 */
+  overflow: hidden;
+  position: relative;
+  margin-top: 0;
+  padding: 0;
+}
+
+.hero-video-container video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 빈 공간 없이 꽉 채움 */
+  object-position: center;
+  display: block;
+}
+
+/*  */
+/*  */
+/* 공연 포스터 미리보기 */
+
+/* 공연 미리보기 섹션 배경색 및 패딩 */
+#performance-preview {
+  background-color: #f9f9f9;
+  padding: 30px 70px 20px;
+}
+
+#performance-preview h2 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 40px;
+  font-weight: 700;
+  color: #010101;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* 롤링 전체 영역 */
+.rolling-row {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+/* 트랙(두 번 복제해서 이어 붙임) */
+.rolling-track {
+  display: flex;
+  gap: 40px;
+  width: max-content;
+  animation: rolling 30s linear infinite;
+}
+
+/* 카드 */
+.rolling-track .preview-card {
+  flex: 0 0 auto;
+  width: 250px;
+  height: 350px;
+  background-color: #000;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s;
+}
+
+.rolling-track .preview-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* hover 효과 */
+.rolling-track .preview-card:hover {
+  transform: scale(1.05);
+}
+
+/* 실제 무한 롤링 애니메이션 */
+@keyframes rolling {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.poster-slider-viewport {
+  width: 620px; /* 한 장만 보이는 너비 */
+  overflow: hidden; /* container 밖 카드 숨김 */
+  margin: 0 auto;
+}
+
+.poster-list-container {
+  display: flex;
+  flex-direction: row;
+  gap: 20px; /* 카드 사이 간격 */
+}
+
+.poster-list-container .poster-card {
+  flex: 0 0 600px; /* 카드 width */
+}
+
+/*  */
+/* 공연장 관련 css */
+
+.area-card {
+  display: flex; /* 카드 내부: 이미지와 텍스트 수평 배치 유지 */
+  flex: 0 0 500px; /* 기존 카드 너비 유지 */
+  background-color: #000;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.area-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.area-card img {
+  width: 300px; /* 1:1 비율 유지 */
+  height: 300px;
+  object-fit: cover;
+}
+
+.area-info {
+  padding: 15px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #fff;
+}
+
+.area-info h3 {
+  margin: 0 0 10px 0;
+  font-size: 18px;
+}
+
+.area-info p {
+  margin: 2px 0;
+  font-size: 14px;
+  color: #ccc;
+}
+
+/* area 쪽 슬라이드 */
+.area-slider-viewport {
+  width: 620px; /* 한 장만 보이는 너비 */
+  overflow: hidden; /* container 밖 카드 숨김 */
+  margin: 0 auto;
+}
+
+.area-list-container {
+  display: flex;
+  flex-direction: row;
+  gap: 20px; /* 카드 사이 간격 */
+}
+
+.area-list-container .area-card {
+  flex: 0 0 600px; /* 카드 width */
+}
+
+#account-area-preview {
+  display: flex;
+  justify-content: space-between; /* 좌/우 배치 */
+  gap: 40px; /* 슬라이드 간 간격 */
+  background-color: #f9f9f9;
+  padding: 0px 70px 100px 100px;
+  margin-bottom: 0;
+}
+
+.left-wrap,
+.right-wrap {
+  flex: 1;
+  display: flex;
+  flex-direction: column; /* 🔥 제목 → 슬라이드 수직 배치 */
+  align-items: center; /* 🔥 h2 가운데 정렬 */
+  width: 50%; /* 또는 적당한 너비 */
+}
+
+/* 구분선 */
+.section-divider {
+  width: 100%;
+  height: 2px;
+  background-color: #9f9f9f; /* 선 색깔 */
+  margin: 60px 0; /* 위아래 여백 */
+  opacity: 0.6; /* 좀 은은하게 */
+}
+
+#account-area-preview h2 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 40px;
+  font-weight: 700;
+  color: #010101;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}

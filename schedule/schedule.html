@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../navbar/navbar.css" />
+    <link rel="stylesheet" href="../footer/footer.css" />
+    <link rel="stylesheet" href="../schedule/schedule.css" />
+    <link rel="stylesheet" href="../base.css" />
+
+    <style></style>
+  </head>
+  <body>
+    <div id="navbar"></div>
+
+    <div class="schedule-container">
+      <!-- 달력 영역 -->
+      <div class="calendar-section">
+        <div class="calendar-nav">
+          <button id="prev-month">&lt;</button>
+          <div id="month-year"></div>
+          <button id="next-month">&gt;</button>
+        </div>
+        <table class="calendar">
+          <thead>
+            <tr>
+              <th>일</th>
+              <th>월</th>
+              <th>화</th>
+              <th>수</th>
+              <th>목</th>
+              <th>금</th>
+              <th>토</th>
+            </tr>
+          </thead>
+          <tbody id="calendar-body">
+            <!-- JS에서 달력 셀 렌더링 -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- 일정 패널 -->
+      <div class="event-panel" id="event-panel">
+        <div id="selected-date-title">날짜를 선택하세요</div>
+        <ul id="event-list">
+          <li style="color: #888">등록된 일정이 없습니다.</li>
+        </ul>
+        <button id="add-event-btn">일정 추가</button>
+      </div>
+    </div>
+
+    <div id="footer"></div>
+
+    <script src="../base.js" defer></script>
+    <script src="../schedule/schedule.js"></script>
+  </body>
+</html>
